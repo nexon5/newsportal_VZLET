@@ -1,0 +1,43 @@
+.contet {padding-left: 400px;}
+ol {
+  margin-top: 20px;
+  margin-left: 40%;
+}
+.ball a {
+width: 100%;
+color: Black;
+text-decoration: none;
+display: inline-block;
+
+height: 44px;
+line-height: 44px;
+font-size: 20px;
+position: relative;
+transition: .3s linear;
+}
+.ball a:before {
+
+content: "";
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: black;
+position: absolute;
+left: -30px;
+top: 7px;
+}
+.ball li {position: relative;}
+.ball li:before {
+
+content: "";
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: rgb(15, 138, 206);
+position: absolute;
+top: 12px;
+left: -30px;
+z-index: 2;
+transition: .4s ease-in-out;
+}
+.ball li:hover:before {left: -20px;}

@@ -1,0 +1,16 @@
+.img1, .img2, .img3, .img4, .img5 {
+  width: 150px;
+  height: 150px;
+}
+
+table{
+  margin-top: 20px;
+  border: 1px soliD black;
+}
+td{
+  font-size: 20px;
+  background-color: #87CEEB;
+  vertical-align: top;
+  padding: 10px;
+  text-align: center;
+}
