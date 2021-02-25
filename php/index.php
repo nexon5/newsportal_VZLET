@@ -30,45 +30,47 @@
             <input type="text" name="username"  required>
             <input type="password" name="password"  required>
 
-            <button class="btn" type="submit" name = "submit">Enter</button>
+            <button class="btn" type="submit" >Enter</button>
           </form>
         </div>
       </div>
 
 <?php
-  session_start();
-  require('connect.php');
+session_start();
+require_once "connect.php";
+ global $connection;
+ connectDB();
 
-//if (isset($_POST['submit']){
-//  echo "123";}
+if (isset($_POST['username']) and isset($_POST['password']) ){
+  $array = array ();
+  $user = $_POST['username'];
+  $password = $_POST['password'];
 
-  if (isset($_POST['username']) and isset($_POST['password'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+  $query = "SELECT username FROM users WHERE username = '".$user."' and password = '".$password."'";
+  $result = mysqli_query($connection, $query) or die(mysql_error($connection));
 
-    $query = "SELECT * FROM users WHERE username='$username' and password ='$password'";
+  $count = mysqli_num_rows($result);
 
-    $result = mysqli_query($connetion, $query) or die(mysqli_error($connetion));
-
-    $count = mysqli_num_rows($result);
-
-//vardamp ($result);
-  $_SESSION['username'] = $username;
-
-    if($count==1) {
-      $_SESSION['username'] = $username;
-    }else {
-      $fmsg = "ERORR";
-    }
+  if ($count == 1){
+    $_SESSION['uname'] = $user;
+    //header('Location: index.php');
+  }
+  else {
+    $error = "Ошибка";
+    echo("<script> alert('Неверное имя или пароль'); </script>");
+  //  include('login.php');
   }
 
+}
 
-  if (isset($_SESSION['username'])){
-    print("Привет мир!");
-    $username = $_SESSION['username'];
-    echo "Hello", $username, "";
-    echo "Вы вошли";
-  }
+if (isset($_SESSION['uname'])){
+  $user = $_SESSION['uname'];
+  echo "Вы ввошли!!";
+  //echo "<a href='logout.php'>LOGOUT</a>";
+
+
+
+}
 
 ?>
     </article>
