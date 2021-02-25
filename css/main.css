@@ -8,6 +8,14 @@ header {
 .logo{
   height: 150px;
   padding-left: 40%;
+  margin-right: 30%;
+}
+
+.exitpic{
+  height: 80px;
+  padding-bottom: 2%;
+
+
 }
 .menu{
   float: left;
