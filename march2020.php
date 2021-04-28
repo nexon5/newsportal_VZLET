@@ -8,9 +8,22 @@
     <title>МАРТ 2020</title>
   </head>
   <body>
+
+
+
+        <?php
+
+      session_start();
+        $user = $_SESSION['uname'];
+        if ($user !== "admin"){
+          $user = "Гость";
+        }
+        ?>
+
+
     <header>
       <img class="logo" src="attach/1.jpg" >
-<a href="php/login.php"><img class="exitpic" src="attach/exit.png"></a>
+<a href="php/repath.php"><img class="exitpic" src="attach/exit.png"></a>
     </header>
     <article class="main">
       <div class="menu">

@@ -10,7 +10,7 @@
   <body>
     <header>
       <img class="logo" src="../attach/1.jpg" >
-<a href="reg.html"><img class="exitpic" src="../attach/exit.png"></a>
+<a href="repath.html"><img class="exitpic" src="../attach/exit.png"></a>
     </header>
     <article class="main">
       <div class="menu">

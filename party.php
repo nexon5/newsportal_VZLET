@@ -9,9 +9,28 @@
     <title>Состав</title>
   </head>
   <body>
+    <?php
+
+  session_start();
+
+
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+//
+//   session_destroy();
+//     //unset($_SESSION['uname']);
+
+
+
+    $user = $_SESSION['uname'];
+    if ($user !== "admin"){
+      $user = "Гость";
+    }
+    ?>
     <header>
       <img class="logo" src="attach/1.jpg">
-<a href="php/login.php"><img class="exitpic" src="attach/exit.png"></a>
+<a href="php/repath.php"><img class="exitpic" src="attach/exit.png"></a>
     </header>
     <article class="main">
       <div class="menu">

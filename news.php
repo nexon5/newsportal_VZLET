@@ -7,6 +7,23 @@
     <title>Главная страница</title>
   </head>
   <body>
+
+
+
+        <?php
+
+      session_start();
+        $user = $_SESSION['uname'];
+        if ($user !== "admin"){
+          $user = "Гость";
+        }
+
+      //  $connect1 = mysqli_connect();
+
+
+        ?>
+
+
     <header>
       <img class="logo" src="attach/1.jpg" >
 <a href="php/login.php"><img class="exitpic" src="attach/exit.png"></a>
@@ -23,11 +40,21 @@
 
       </ul>
       </div>
-
+<style>
+</style>
       <div class="content">
+          <table>
+            <tr>
+              <td>
+              Заголовок
+            </td>
+            </tr>
+            <tr>
+              <td>jnkfnkfsjfngkjdnfgk</td>
+            </tr>
+          </table>
 
-
-
+      </div>
     </article>
   </body>
 </html>

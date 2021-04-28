@@ -19,21 +19,19 @@
 //
 //   session_destroy();
 //     //unset($_SESSION['uname']);
-//
-//     echo '<pre>';
-//     print_r($_SESSION);
-//     echo '</pre>';
 
 
 
     $user = $_SESSION['uname'];
-    echo $user;
+    if ($user !== "admin"){
+      $user = "Гость";
+    }
     ?>
 
 
     <header>
       <img class="logo" src="attach/1.jpg" >
-      <a href="php/login.php"><img class="exitpic" src="attach/exit.png"></a>
+      <a href="php/repath.php"><img class="exitpic" src="attach/exit.png"></a>
     </header>
     <article class="main">
       <div class="menu">
