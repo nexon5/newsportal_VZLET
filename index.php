@@ -11,7 +11,7 @@
     <?php
 
   session_start();
-$_SESSION['uname']= "Вася";
+
 
 // echo '<pre>';
 // print_r($_SESSION);
@@ -27,6 +27,7 @@ $_SESSION['uname']= "Вася";
 
 
     $user = $_SESSION['uname'];
+    echo $user;
     ?>
 
 

@@ -35,8 +35,8 @@ if (isset($_SESSION['uname'])){
  }*/
  //echo "<a href='logout.php'>LOGOUT</a>";
 }
- echo '<pre>';
- print_r($_SESSION);
- echo '</pre>';
-require_once "username.php"
+ // echo '<pre>';
+ // print_r($_SESSION);
+ // echo '</pre>';
+
 ?>
