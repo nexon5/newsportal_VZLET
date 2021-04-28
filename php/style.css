@@ -1,0 +1,22 @@
+form {
+    display: inline-block;
+    margin-bottom: auto;
+    border: 3px dotted; }
+forma {
+	margin-bottom: 500px;
+}
+label {
+    display: inline-block;
+    font-weight: bolder;
+    width:150px;
+    margin: 5px 0px; }
+.btn1 {width:150px; }
+form blockquote {
+    background: #00FFFF;
+    text-align: center;
+    margin: 0px;
+    padding: 5px 0px;
+    font-style:italic;}
+
+input:valid {color:green}
+input:invalid {color:red}

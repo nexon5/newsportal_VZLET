@@ -7,18 +7,42 @@
     <title>Главная страница</title>
   </head>
   <body>
+
+    <?php
+
+  session_start();
+$_SESSION['uname']= "Вася";
+
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+//
+//   session_destroy();
+//     //unset($_SESSION['uname']);
+//
+//     echo '<pre>';
+//     print_r($_SESSION);
+//     echo '</pre>';
+
+
+
+    $user = $_SESSION['uname'];
+    ?>
+
+
     <header>
       <img class="logo" src="attach/1.jpg" >
-      <a href="php/index.php"><img class="exitpic" src="attach/exit.png"></a>
+      <a href="php/login.php"><img class="exitpic" src="attach/exit.png"></a>
     </header>
     <article class="main">
       <div class="menu">
         <ul class="navbar">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="party.html">Состав</a></li>
-          <li><a href="collection.html">Выпуски</a></li>
-          <li><a href="contact.html">Набор</a></li>
+          <li><a href="index.php">Главная</a></li>
+          <li><a href="news.php">Новости</a></li>
+          <li><a href="party.php">Состав</a></li>
+          <li><a href="collection.php">Выпуски</a></li>
+          <li><a href="contact.php">Набор</a></li>
+            <li id="222">Добро пожаловать, <?php  echo $user ?> </li>
 
       </ul>
       </div>
