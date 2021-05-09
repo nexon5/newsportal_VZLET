@@ -37,6 +37,8 @@
 </fieldset>
 <br>
             <button class="btn" type="submit" >Войти</button>
+            <button class="btn" onclick="document.location='reg.php'" >Регистрация</button>
+
             <br>
           </form>
         </div>
