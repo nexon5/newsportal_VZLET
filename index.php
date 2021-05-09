@@ -13,17 +13,18 @@
   session_start();
 
 
-// echo '<pre>';
-// print_r($_SESSION);
-// echo '</pre>';
-//
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+
 //   session_destroy();
 //     //unset($_SESSION['uname']);
 
 
 
     $user = $_SESSION['uname'];
-    if ($user !== "admin"){
+    echo $user;
+    if ($user == ''){
       $user = "Гость";
     }
     ?>

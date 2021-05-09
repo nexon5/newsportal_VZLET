@@ -14,7 +14,7 @@
 
       session_start();
         $user = $_SESSION['uname'];
-        if ($user !== "admin"){
+        if ($user == ''){
           $user = "Гость";
         }
         ?>
