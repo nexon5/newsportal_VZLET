@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/spis.css">
+    <title>Личный кабинет</title>
   </head>
   <body>
 
@@ -13,20 +14,18 @@
   session_start();
 
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-
-//   session_destroy();
-//     //unset($_SESSION['uname']);
-
-
-
     $user = $_SESSION['uname'];
     echo $user;
     if ($user == ''){
       $user = "Гость";
     }
+
+
+
+    if ($user == "Гость") {
+      header ('Location: php/login.php' );
+    }
+    $a="IVAN";
     ?>
 
 
@@ -49,7 +48,15 @@ echo '</pre>';
       </div>
 
       <div class="content">
-        <h1><i>Добро пожаловать в личный кабинет, <?php$user  ?>!!! </i></h1>
+        <h1><i>Добро пожаловать в личный кабинет, <?php echo $user  ?>!!! </i></h1>
+        <?php
+        echo "<ul class='ball'>
+          <li><a href=myInfo.php?name=$user>Открыть мой профиль</a></li>
+          <li><a href='usersList.php'>Посмотреть профиль других пользователей</a></li>
+          <li><a href='chat.php'>Общение с администрацией</a></li>
+      </ul>"
+         ?>
+
 
       </div>
 

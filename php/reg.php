@@ -35,11 +35,11 @@ connectDB();
 }
 echo "Connected successfully";
 
-$sql = "SELECT * FROM users";
-   $result = mysqli_query($connection, $sql);
+$sql = "SELECT * FROM users";//ПРОВЕРКА
+   $result = mysqli_query($connection, $sql);//ПРОВЕРКА
 
- $row = mysqli_fetch_assoc($result);
-            print_r($row);
+ $row = mysqli_fetch_assoc($result);//ПРОВЕРКА
+            print_r($row);//ПРОВЕРКА
 
 
         if (isset($_POST['username']) && isset($_POST['password'])){
@@ -64,15 +64,16 @@ $sql = "SELECT * FROM users";
           <br><br>
           <form  id="content" method="POST">
             <fieldset>
-<label for="username">Введите Ваш никнейм:</label>
+            <label for="username">Введите Ваш никнейм:</label>
             <input type="text" name="username"  required>
             <br>
             <label for="Email">Введите Вашу почту:</label>
-                        <input type="text" name="Email"  required>
-            <br><label for="password">Введите Ваш пароль:</label>
+            <input type="text" name="Email"  required>
+            <br>
+            <label for="password">Введите Ваш пароль:</label>
             <input type="password" name="password"  required>
-</fieldset>
-<br>
+          </fieldset>
+          <br>
             <button class="btn" type="submit" >Зарегистрироваться</button>
                         <br>
           </form>

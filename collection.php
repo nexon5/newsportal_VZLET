@@ -33,6 +33,7 @@
           <li><a href="party.php">Состав</a></li>
           <li><a href="collection.php">Выпуски</a></li>
           <li><a href="contact.php">Набор</a></li>
+          <li><a href="personal.php">Личный кабинет</a></li>
             <li id="222">Добро пожаловать, <?php  echo $user ?> </li>
       </ul>
       </div>
@@ -41,10 +42,10 @@
         <h1><i><b>НАШИ ВЫПУСКИ</b></i></h1>
 
         <ol class="ball">
-        <li><a href="march2020.html">Март 2020</a></li>
-        <li><a href="Feb2020.html">Февраль 2020</a></li>
-        <li><a href="Sep2019.html">Сентябрь-октябрь 2019</a></li>
-        <li><a href="Jun2019.html">Май-июнь 2019</a></li>
+        <li><a href="march2020.php">Март 2020</a></li>
+        <li><a href="Feb2020.php">Февраль 2020</a></li>
+        <li><a href="Sep2019.php">Сентябрь-октябрь 2019</a></li>
+        <li><a href="Jun2019.php">Май-июнь 2019</a></li>
         </ol>
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -32,6 +32,7 @@
           <li><a href="party.php">Состав</a></li>
           <li><a href="collection.php">Выпуски</a></li>
           <li><a href="contact.php">Набор</a></li>
+          <li><a href="personal.php">Личный кабинет</a></li>
             <li id="222">Добро пожаловать, <?php  echo $user ?> </li>
 
       </ul>

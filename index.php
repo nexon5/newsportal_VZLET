@@ -13,9 +13,9 @@
   session_start();
 
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
 
 //   session_destroy();
 //     //unset($_SESSION['uname']);
@@ -42,7 +42,7 @@ echo '</pre>';
           <li><a href="party.php">Состав</a></li>
           <li><a href="collection.php">Выпуски</a></li>
           <li><a href="contact.php">Набор</a></li>
-          <li><a href="contact.php">Личный кабинет</a></li>
+          <li><a href="personal.php">Личный кабинет</a></li>
             <li id="222">Добро пожаловать, <?php  echo $user ?> </li>
 
       </ul>

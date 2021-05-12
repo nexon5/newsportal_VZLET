@@ -8,7 +8,6 @@ $connection = false;
  function connectDB() {
    global $connection;
    $connection = new mysqli("localhost", "root", "root", "owndatabase");
-   //$connection->query("SET NAMES 'utf-8'");
  }
 
 
