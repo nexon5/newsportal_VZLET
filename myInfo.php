@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/spis.css">
+    <link rel="stylesheet" href="css/infoUser.css">
     <title>Личный кабинет</title>
   </head>
   <body>
@@ -50,24 +51,22 @@
       <div class="content">
         <h1><i>Добро пожаловать в личный кабинет, <?php echo $user  ?>!!! </i></h1>
 
-        <?php
-        echo 'Привет, ' . htmlspecialchars($_GET["name"]) . '!';
-        ?>
+
     <?php
     //====================================РАБОТА С БД===========================================
       include "php/connect.php";
       connectDB();
-      if ($connection->connect_error) {
-       die("Connection failed: " . $connection->connect_error);
-     }
-     echo "Connected successfully";
+     //  if ($connection->connect_error) {
+     //   die("Connection failed: " . $connection->connect_error);
+     // }
+     // echo "Connected successfully";
 
      $query1="SELECT id_users FROM users WHERE username='$user'";//Запрос на вывод ид из БД
      $result = mysqli_query($connection, $query1);//Запуск запроса
      $array_USERS = mysqli_fetch_assoc($result);//Образование массива с резултатом ид
      $id_user = $array_USERS['id_users'];// Запись в переменную id_users авторизованного пользователя
 
-     $query2="SELECT title, link, username FROM info INNER JOIN users on id_usersInfo=id_users WHERE id_usersInfo='$id_user'";
+     $query2="SELECT title, link, username, coment FROM info INNER JOIN users on id_usersInfo=id_users WHERE id_usersInfo='$id_user'";
      $result = mysqli_query($connection, $query2);
 
       // $arrayResult = mysqli_fetch_assoc($result);
@@ -79,15 +78,14 @@
        $rows = mysqli_num_rows($result); // количество полученных строк
 
 
-        echo "<table><tr><th>Заголовок</th><th>Ссылка</th><th>АВТОР</th></tr>";// ПОДКЛЮЧИТЬ СТИЛИ!!!!!
+        echo "<table class='infoUser'><tr><th class='firstP'>Заголовок</th><th>Ссылка</th><th>АВТОР</th><th>Комментарий</th><th class='lastP'>Правка</th></tr>";// ПОДКЛЮЧИТЬ СТИЛИ!!!!!
         while ($row = mysqli_fetch_row($result)) {
           echo "<tr>";
-        for ($j = 0 ; $j < 3 ; ++$j) {
+        for ($j = 0 ; $j < 4 ; ++$j) {
 
           echo "<td>$row[$j]</td>";
         }
-          echo "<td><a href='#'> UPDATE</td>";
-          echo "<td><a href='#'> DELETE</td>";
+          echo "<td><a href='#'> UPDATE <br> <a href='#'>  DELETE</td>";
         echo "</tr>";
 }
         echo "</table>";
@@ -95,20 +93,28 @@
 
 
       ?>
-      <form action="php/createNew.php"  method="POST">
+      <br><br><br>
+      <center>
+        <h2>Добавление статьи</h2>
+        <a> Если Вы хотите добавить статью, заполните форму ниже: </a>
+        </center>
+      <form class="addForm" action="php/createNew.php"  method="POST">
         <fieldset>
-        <label for="username">Заголовок:</label>
-        <input type="text" name="title"  required>
+          <legend><i>Добавить публикацию:</i></legend>
+          <!-- <label for="title">Заголовок:</label> -->
+          <input type="text" name="title" placeholder="ЗАГОЛОВОК"  required>
+          <br>
+          <!-- <label for="link">Ссылка:</label> -->
+          <input type="text" name="link" placeholder="Ссылка" required>
+          <br>
+          <!-- <label for="comment">Комментарий:</label> -->
+          <input type="text" name="comment" placeholder="Комментарий"  >
+
         <br>
-        <label for="Email">Ссылка:</label>
-        <input type="text" name="link"  required>
-        <br>
-        <label for="password">Комментарий:</label>
-        <input type="text" name="password"  >
-      </fieldset>
-      <br>
-        <button class="btn" type="submit">Добавить</button>
-                    <br>
+          <button class="btn1" type="submit">Добавить</button>
+                      <br>
+        </fieldset>
+
       </form>
 
 

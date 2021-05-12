@@ -15,8 +15,9 @@ echo $id_user;
  if (isset($_POST['title']) && isset($_POST['link'])){
    $title = $_POST['title'];
    $link = $_POST['link'];
+   $coment = $_POST['comment'];
 
-   $addQuery = "INSERT INTO info (id_usersInfo, title, link) VALUES ('$id_user', '$title', '$link')";
+   $addQuery = "INSERT INTO info (id_usersInfo, title, link, coment) VALUES ('$id_user', '$title', '$link','$coment')";
     mysqli_query($connection, $addQuery);
     header('Location: ../myInfo.php');
   }
