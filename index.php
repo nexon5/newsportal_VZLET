@@ -23,7 +23,7 @@
 
 
     $user = $_SESSION['uname'];
-    echo $user;
+    
     if ($user == ''){
       $user = "Гость";
     }

@@ -15,7 +15,7 @@
 
 
     $user = $_SESSION['uname'];
-    echo $user;
+  
     if ($user == ''){
       $user = "Гость";
     }
@@ -25,7 +25,7 @@
     if ($user == "Гость") {
       header ('Location: php/login.php' );
     }
-    $a="IVAN";
+
     ?>
 
 

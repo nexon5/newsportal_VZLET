@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/spis.css">
     <link rel="stylesheet" href="css/infoUser.css">
     <title>Личный кабинет</title>
+
   </head>
   <body>
 
@@ -66,7 +67,7 @@
      $array_USERS = mysqli_fetch_assoc($result);//Образование массива с резултатом ид
      $id_user = $array_USERS['id_users'];// Запись в переменную id_users авторизованного пользователя
 
-     $query2="SELECT title, link, username, coment FROM info INNER JOIN users on id_usersInfo=id_users WHERE id_usersInfo='$id_user'";
+     $query2="SELECT id_i, title, link, username, coment FROM info INNER JOIN users on id_usersInfo=id_users WHERE id_usersInfo='$id_user'";
      $result = mysqli_query($connection, $query2);
 
       // $arrayResult = mysqli_fetch_assoc($result);
@@ -81,11 +82,13 @@
         echo "<table class='infoUser'><tr><th class='firstP'>Заголовок</th><th>Ссылка</th><th>АВТОР</th><th>Комментарий</th><th class='lastP'>Правка</th></tr>";// ПОДКЛЮЧИТЬ СТИЛИ!!!!!
         while ($row = mysqli_fetch_row($result)) {
           echo "<tr>";
-        for ($j = 0 ; $j < 4 ; ++$j) {
-
-          echo "<td>$row[$j]</td>";
+        for ($j = 1 ; $j < 5 ; ++$j) {
+          if($j == 2){
+            echo "<td><a href='$row[$j]'>$row[$j]</td>";
+          }
+          else {echo "<td>$row[$j]</td>";}
         }
-          echo "<td><a href='#'> UPDATE <br> <a href='#'>  DELETE</td>";
+          echo "<td><a href='php/update.php?id_i=$row[0]'> Изменить <br> <a href='php/delete.php?id_i=$row[0]'> DELETE</td>";
         echo "</tr>";
 }
         echo "</table>";
