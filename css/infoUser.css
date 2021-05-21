@@ -21,13 +21,17 @@
   width: 100px;
   border-radius: 0px 100px  0px 0px;
 }
-table  tr td {border: 1px solid #01ab73;
+.infoUser  tr td {border: 1px solid #01ab73;
+    overflow-wrap: break-word;
   height: 40px;
 }
-table tbody tr td {border: 1px solid #e8e9eb;}
-table tbody tr:nth-child(2n) {background: #f4f4f4;}
-table tbody tr:hover {background: #ebffe8;}
+.infoUser tbody tr td {border: 1px solid #e8e9eb;
+  overflow-wrap: break-word;}
+.infoUser tbody tr:nth-child(2n) {background: #f4f4f4;}
+.infoUser tbody tr:hover {background: #ebffe8;}
 
+
+/* FORMAAAAAAA */
 .addForm {
   margin-top: 20PX;
   margin-left: 20%;
@@ -35,7 +39,7 @@ table tbody tr:hover {background: #ebffe8;}
 
 
 }
-input{
+.addForm input{
   width: 300px;
 }
  .addForm input[type=text] {
@@ -50,7 +54,7 @@ fieldset {
   border-color: #0f8ace;
   border-style: dashed;
 }
-input[type=text]:focus {
+.addForm input[type=text]:focus {
   background-color: lightblue;
 }
 .btn1{

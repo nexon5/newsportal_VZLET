@@ -68,7 +68,7 @@
          while ($n < $rows){
 
          $row = mysqli_fetch_row($result);
-          echo "<li><a href='otherInfo.php?id=$row[0]'>$row[1]</a></li>";
+          echo "<li><a href='otherInfo.php?id=$row[0]&name=$row[1]'>$row[1]</a></li>";
         $n++;
 
          }

@@ -1,0 +1,85 @@
+.comm  {
+  width: 80%;
+
+  margin: 30px 10% 30px 10%;
+  border-collapse: collapse;
+
+ }
+
+.authorSpan{
+  font-size: 20px;
+}
+.SPUN{
+  font-size: 18px;
+}
+
+.comm tbody tr td {
+  /*font-style: italic;*/
+  height: 40px;
+}
+
+.author {
+
+font-style: normal;
+font-weight: bold;
+}
+
+.comment {
+
+  font-style: italic;
+  padding: 10px;
+
+}
+.comm tbody tr:nth-child(2n) {
+
+  border: 1px dotted blue;
+  overflow-wrap: break-word;
+  height: 100px;
+  font-style: normal;
+  background: #f4f4f4;
+}
+
+.commTable{
+  margin-left: 10%;
+}
+
+.commForm input {
+
+  border: 2px solid #0f8ace ;
+  padding:    5px;
+  box-shadow:0 0 15px 4px rgba(15,138,206,0.5);
+  font-size: 15px;
+}
+
+.commForm textarea{
+  border: 2px solid #0f8ace ;
+  padding:    5px;
+  box-shadow:0 0 15px 4px rgba(15,138,206,0.5);
+  font-size: 15px;
+
+}
+
+.c-button{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+ border: 0;
+ border-radius: 0;
+ background: #ccc;
+
+ appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #0f8ace;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+   cursor: pointer;
+   height: 45px;
+
+
+}
+
+.c-button:hover {
+  background: #1d49aa;
+}
