@@ -18,7 +18,14 @@
           $user = "Гость";
         }
 
-      //  $connect1 = mysqli_connect();
+        include 'php/connect.php';
+
+        connectDB();
+
+        $result=mysqli_query($connection, "SELECT * FROM news");
+
+        $arrResult=mysqli_fetch_assoc($result);
+
 
 
         ?>
@@ -44,17 +51,19 @@
 <style>
 </style>
       <div class="content">
-          <table>
-            <tr>
-              <td>
-              Заголовок
-            </td>
-            </tr>
-            <tr>
-              <td>jnkfnkfsjfngkjdnfgk</td>
-            </tr>
-          </table>
+<?php
+    print_r($arrResult);
+    echo "<table>";
 
+      while ($row = mysqli_fetch_row($result)) {
+        // echo "<tr>"
+      for ($j = 1 ; $j < 4 ; ++$j) {
+     echo "<tr> <td>$row[1]</td> <td>$row[3]</td></tr>";} }
+
+     echo "</table>";
+
+
+ ?>
       </div>
     </article>
   </body>
