@@ -85,12 +85,13 @@
  }
  echo "</table>";
  ?>
-<div class="conainerForm">
+
  <?php
   if ($user=='admin'){
     $today = date("m.d.y");
 
-    echo "  <form class='news-adding' action='php/addNews.php'  method='POST'>
+    echo "<div class='conainerForm'>
+      <form class='news-adding' action='php/addNews.php'  method='POST'>
         <fieldset>
           <legend><i>Добавить Новость:</i></legend>
 
@@ -112,11 +113,11 @@
                       <br>
         </fieldset>
 
-      </form>";
+      </form></div>";
   }
 
  ?>
-</div>
+
       </div>
     </article>
   </body>

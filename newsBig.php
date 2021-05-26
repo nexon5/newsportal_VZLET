@@ -4,7 +4,16 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/comm.css">
     <title>Новости</title>
+    <style type="text/css">
+        .newss {
+          padding: 10px;
+          text-align: justify;
+          font-size: 18px;
+
+        }
+  </style>
   </head>
   <body>
         <?php
@@ -24,6 +33,8 @@
         $result=mysqli_query($connection, "SELECT * FROM news WHERE id_n='$id_n'");
 
       $arrResult=mysqli_fetch_assoc($result);
+
+      $result1 = mysqli_query($connection, "SELECT author, textcomm FROM commnews WHERE id_n='$id_n'");
 
 
 
@@ -48,47 +59,15 @@
 <style>
 </style>
       <div class="content">
+        <div class="newss">
 <?php
 
-print_r($arrResult);
- //    echo "<table class=''>";// ПОДКЛЮЧИТЬ СТИЛИ!!!!!
- //    while ( $row1 = mysqli_fetch_row($result)) {
- //
- //    for ($j = 1 ; $j < 6 ; ++$j) {
- //      if ($j == 1){
- //     echo "<tr>";
- //       echo "<td class=''><span class='authorSpan'>$row1[1] </span></td>";
- //       echo "</tr>";
- //     }
- //      if ($j==3){
- //        echo "<tr>";
- //        echo "<td class='' colspan='2'><span='SPUN'>$row1[3]</span></td>";
- //        echo "</tr>";
- //      }
- //      if ($j==4) {
- //       echo "<tr>";
- //       echo "<td class=''><span='SPUN'>$row1[4]</span></td>";
- //       echo "</tr>";
- //
- //    }
- //    if ($j==5) {
- //     echo "<tr>";
- //     echo "<td class=''><span='SPUN'>$row1[5]</span></td>";
- //     echo "</tr>";
- //
- //  }
- //    }
- //
- //
- // }
- // echo "</table>";
-
-  echo "<h1>$arrResult[title]</h1>";
+  echo "<h1>$arrResult[title]</h1><br>";
 
   $text=str_replace("\n","<br>", $arrResult['fullText']);
 
   echo $text;
-
+  echo "<br><br>";
 
 
 if($user == 'admin'){
@@ -97,6 +76,61 @@ if($user == 'admin'){
 }
 
  ?>
+</div>
+      <h2 align="center" style="font-style: normal;"><i>- - - - - - - - - Коментарии  - - - - - - - - - - -</i></h2>
+      <?php
+
+      if ($result1){
+        $rows1 = mysqli_num_rows($result1); // количество полученных строк
+
+      //
+         echo "<table class='comm'>";// ПОДКЛЮЧИТЬ СТИЛИ!!!!!
+         while ( $row1 = mysqli_fetch_row($result1)) {
+
+         for ($j = 0 ; $j < 2 ; ++$j) {
+           if ($j == 0){
+          echo "<tr>";
+            echo "<td class='author'><span class='authorSpan'>$row1[0]</span></td>";
+            echo "</tr>";
+          } else {
+            echo "<tr>";
+            echo "<td class='comment'><span='SPUN'>$row1[1]</span></td>";
+            echo "</tr>";
+
+          }
+
+         }
+
+
+      }
+      echo "</table>";
+
+      }
+
+      if(isset($_POST['nickname']) && !empty($_POST['text'])){
+        $textcomm = $_POST['text'];
+        mysqli_query($connection,"INSERT INTO commnews (id_n, author, textcomm) VALUES ('$id_n', '$user', '$textcomm')");
+        header("Location: newsBig.php?id_news=$id_n");
+      }
+
+ ?>
+
+ <form class="commForm" method="post">
+<table class="commTable" cellspacing="0" cellpadding="4">
+<tr>
+<td align="right" width="100" >Имя</td>
+<td><input type="text" name="nickname" maxlength="50" size="35" value="<? echo $user; ?>"></td>
+</tr>
+<tr>
+<td align="right" valign="top">Комментарий</td>
+<td><textarea name="text" cols="75" rows="10" required></textarea></td>
+</tr>
+<tr>
+<td></td>
+<td><button class="c-button" type="submit" >Добавить комментарий</button></td>
+</tr>
+</table>
+<br><br><br><br><br>
       </div>
     </article>
   </body>
