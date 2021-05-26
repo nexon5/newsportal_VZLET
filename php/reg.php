@@ -30,10 +30,7 @@
 include "connect.php";
 // $conn = new mysqli("localhost", "root", "root", "owndatabase");
 connectDB();
- if ($connection->connect_error) {
-  die("Connection failed: " . $connection->connect_error);
-}
-echo "Connected successfully";
+
 
 $sql = "SELECT * FROM users";//ПРОВЕРКА
    $result = mysqli_query($connection, $sql);//ПРОВЕРКА

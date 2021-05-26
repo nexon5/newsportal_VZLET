@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/news-style.css">
+    <title>Новости</title>
   </head>
   <body>
 
@@ -22,9 +23,9 @@
 
         connectDB();
 
-        $result=mysqli_query($connection, "SELECT * FROM news");
-
-        $arrResult=mysqli_fetch_assoc($result);
+        $result=mysqli_query($connection, "SELECT * FROM news ORDER BY datee DESC");
+        $count = mysqli_num_rows($result);
+      //  $arrResult=mysqli_fetch_assoc($result);
 
 
 
@@ -51,19 +52,71 @@
 <style>
 </style>
       <div class="content">
+        <h1>Новости</h1>
 <?php
-    print_r($arrResult);
-    echo "<table>";
 
-      while ($row = mysqli_fetch_row($result)) {
-        // echo "<tr>"
-      for ($j = 1 ; $j < 4 ; ++$j) {
-     echo "<tr> <td>$row[1]</td> <td>$row[3]</td></tr>";} }
 
-     echo "</table>";
+    echo "<table class='newsTable'>";
 
+
+    while ( $row1 = mysqli_fetch_row($result)) {
+
+    for ($j = 1 ; $j < 7 ; ++$j) {
+      if ($j == 1){
+     echo "<tr>";
+       echo "<td class='newsZagolovok'><span class='authorSpan'><a href='newsBig.php?id_news=$row1[0]'>$row1[1]</span></td><td class='newsZagolovok' >Автор:<i> $row1[4]</i></td>";
+       echo "</tr>";
+     }
+      if ($j==2){
+        echo "<tr>";
+        echo "<td class='news-style' colspan='2'><span='SPUN'>$row1[2]</span></td>";
+        echo "</tr>";
+      }
+      if ($j==5) {
+       echo "<tr class='dateTR'>";
+       echo "<td class='dateNews'><i> Дата написания: $row1[5]</i></td>";
+       echo "</tr>";
+
+    }
+
+    }
+
+
+ }
+ echo "</table>";
+ ?>
+<div class="conainerForm">
+ <?php
+  if ($user=='admin'){
+    $today = date("m.d.y");
+
+    echo "  <form class='news-adding' action='php/addNews.php'  method='POST'>
+        <fieldset>
+          <legend><i>Добавить Новость:</i></legend>
+
+          <input type='text' name='title' placeholder='ЗАГОЛОВОК'  required>
+          <br>
+
+          <input type='text' class='fch' name='news' placeholder='Аннотация' required>
+          <br>
+
+          <textarea type='text' name='fullText' placeholder='Полный текст'  required></textarea>
+          <br>
+
+
+          <input type='date' name='date'>
+          <br> <input type='text' name='author' value='admin'>
+
+        <br>
+          <button class='c-button' type='submit'>Добавить</button>
+                      <br>
+        </fieldset>
+
+      </form>";
+  }
 
  ?>
+</div>
       </div>
     </article>
   </body>
