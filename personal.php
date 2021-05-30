@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/spis.css">
+    <link rel="stylesheet" href="css/profile.css">
     <title>Личный кабинет</title>
   </head>
   <body>
@@ -15,7 +16,7 @@
 
 
     $user = $_SESSION['uname'];
-  
+
     if ($user == ''){
       $user = "Гость";
     }
@@ -25,6 +26,15 @@
     if ($user == "Гость") {
       header ('Location: php/login.php' );
     }
+
+
+    include 'php/connect.php';
+    connectDB();
+    $result = mysqli_query($connection, "SELECT * FROM user_profile INNER JOIN users on id_u=id_users WHERE username='$user' ");
+    $arrResult = mysqli_fetch_assoc($result);
+    print_r($arrResult);
+
+
 
     ?>
 
@@ -48,15 +58,30 @@
       </div>
 
       <div class="content">
-        <h1><i>Добро пожаловать в личный кабинет, <?php echo $user  ?>!!! </i></h1>
-        <?php
-        echo "<ul class='ball'>
-          <li><a href=myInfo.php?name=$user>Открыть мой профиль</a></li>
-          <li><a href='usersList.php'>Посмотреть профиль других пользователей</a></li>
-          <li><a href='chat.php'>Общение с администрацией</a></li>
-      </ul>"
-         ?>
+        <h1><i>Добро пожаловать в личный кабинет, <?php echo $user  ?>!!! </i></h1><br><br>
+        <div class="profile">
+          <div class="row1">
+            <?php
+              echo "Имя: $arrResult[name]  <br>Фамилия: $arrResult[surname]<br> Пол: $arrResult[sex]<br>Дата Рождения:  $arrResult[birth] ";
+               ?>
+          </div>
+          
 
+        </div>
+
+
+         <div class="row3">
+           <?php
+
+
+           echo "<ul class='ball'>
+              <li><a href=php/profileUser.php?id_p=$arrResult[id_p]>Редактировать мой профиль</a></li>
+             <li><a href=myInfo.php?name=$user>Открыть перечень моих публикаций</a></li>
+             <li><a href='usersList.php'>Посмотреть публикации других пользователей</a></li>
+             <li><a href='chat.php'>Общение с администрацией</a></li>
+         </ul>"
+            ?>
+         </div>
 
       </div>
 

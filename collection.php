@@ -64,7 +64,7 @@
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        <a href="#" class="c">Комментировать</a>
+        <a href="subscribe.php" class="c">Оформить  f подписку</a>
       </div>
 
 

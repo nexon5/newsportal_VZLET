@@ -35,8 +35,8 @@ connectDB();
 $sql = "SELECT * FROM users";//ПРОВЕРКА
    $result = mysqli_query($connection, $sql);//ПРОВЕРКА
 
- $row = mysqli_fetch_assoc($result);//ПРОВЕРКА
-            print_r($row);//ПРОВЕРКА
+ // $row = mysqli_fetch_assoc($result);//ПРОВЕРКА
+ //            print_r($row);//ПРОВЕРКА
 
 
         if (isset($_POST['username']) && isset($_POST['password'])){

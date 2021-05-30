@@ -1,0 +1,36 @@
+.profile{
+
+  width: 800px;
+  height: 260px;
+  margin-left:  25%;
+
+  font-size: 18px;
+
+}
+.row1{
+  padding-top: 40px;
+  width: 360px;
+  height: 200px;
+  /* margin-left:  250px;
+  margin-bottom: 20PX; */
+  font-size: 18px;
+  padding-top: 60px;
+  padding-left: 20px;
+  float: left;
+}
+.row2{
+
+  width: 360px;
+  height: 200px;
+  /* margin-left:  250px;
+  margin-bottom: 20PX; */
+  font-size: 18px;
+  padding-top: 60px;
+  padding-left: 20px;
+  margin-left: 400px;
+
+}
+.row3{
+    margin-left: 30%;
+
+}
