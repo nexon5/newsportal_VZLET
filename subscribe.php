@@ -32,7 +32,7 @@
         connectDB();
 
 
-
+        if (isset($_POST['name']) && isset($_POST['adress'])){
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $patronymic = $_POST['patronymic'];
@@ -47,7 +47,7 @@
 
       unset($_POST);
       header('Location: anketa.php');
-
+    }
 
 
 

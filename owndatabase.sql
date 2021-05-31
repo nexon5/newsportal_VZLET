@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 29, 2021 at 05:36 PM
+-- Generation Time: May 31, 2021 at 10:11 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `owndatabase`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `anketa`
+--
+
+CREATE TABLE `anketa` (
+  `id_a` int(11) NOT NULL,
+  `lang` text NOT NULL,
+  `age` text NOT NULL,
+  `sex` text NOT NULL,
+  `topic` text NOT NULL,
+  `prof` varchar(100) NOT NULL,
+  `WorldP` varchar(50) NOT NULL,
+  `education` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `anketa`
+--
+
+INSERT INTO `anketa` (`id_a`, `lang`, `age`, `sex`, `topic`, `prof`, `WorldP`, `education`) VALUES
+(6, 'Both', '<18', 'female', 'Наука, Спорт, История, Философия', 'student', 'stylesheet', 'Высшее');
 
 -- --------------------------------------------------------
 
@@ -160,7 +184,8 @@ CREATE TABLE `subscribe` (
 INSERT INTO `subscribe` (`id_sub`, `name`, `surname`, `patronymic`, `adress`, `email`, `phone`, `period`, `sub`, `date_sub`) VALUES
 (1, 'Александр', 'Александровский', 'александрович', 'г.Киев', 'kjnnbb@gmail.com', '', 'На год', 'on', '2021-05-29 14:12:17'),
 (8, 'gge', 'jnk', 'nkbvc', 'cvvv', 'vggff', '', 'Годовая подписка', 'on', '2021-05-29 14:25:16'),
-(9, 'rhrnrnn', 'jnkjnkj', 'bjbkjbkj', 'kbkbkj', 'bkbkjbkjb', 'kkj kjkj ', 'Один выпуск', 'on', '2021-05-29 14:25:27');
+(9, 'rhrnrnn', 'jnkjnkj', 'bjbkjbkj', 'kbkbkj', 'bkbkjbkjb', 'kkj kjkj ', 'Один выпуск', 'on', '2021-05-29 14:25:27'),
+(10, 'wrgrgr', 'huihib', 'bjbj', 'jbjhbjhb', 'hbjbjb', 'bjb', 'Годовая подписка', 'on', '2021-05-30 07:40:25');
 
 -- --------------------------------------------------------
 
@@ -215,6 +240,12 @@ INSERT INTO `user_profile` (`id_p`, `id_u`, `name`, `surname`, `sex`, `birth`, `
 --
 
 --
+-- Indexes for table `anketa`
+--
+ALTER TABLE `anketa`
+  ADD PRIMARY KEY (`id_a`);
+
+--
 -- Indexes for table `comm`
 --
 ALTER TABLE `comm`
@@ -262,6 +293,12 @@ ALTER TABLE `user_profile`
 --
 
 --
+-- AUTO_INCREMENT for table `anketa`
+--
+ALTER TABLE `anketa`
+  MODIFY `id_a` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `comm`
 --
 ALTER TABLE `comm`
@@ -289,7 +326,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `id_sub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_sub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

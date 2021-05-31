@@ -32,7 +32,7 @@
     connectDB();
     $result = mysqli_query($connection, "SELECT * FROM user_profile INNER JOIN users on id_u=id_users WHERE username='$user' ");
     $arrResult = mysqli_fetch_assoc($result);
-    print_r($arrResult);
+  
 
 
 
@@ -65,7 +65,7 @@
               echo "Имя: $arrResult[name]  <br>Фамилия: $arrResult[surname]<br> Пол: $arrResult[sex]<br>Дата Рождения:  $arrResult[birth] ";
                ?>
           </div>
-          
+
 
         </div>
 
@@ -74,8 +74,11 @@
            <?php
 
 
-           echo "<ul class='ball'>
-              <li><a href=php/profileUser.php?id_p=$arrResult[id_p]>Редактировать мой профиль</a></li>
+           echo "<ul class='ball'>";
+              if($user=='admin'){
+                echo "<li><a href='stat.php'>Открыть статистику</a></li>";
+              }
+              echo "<li><a href=php/profileUser.php?id_p=$arrResult[id_p]>Редактировать мой профиль</a></li>
              <li><a href=myInfo.php?name=$user>Открыть перечень моих публикаций</a></li>
              <li><a href='usersList.php'>Посмотреть публикации других пользователей</a></li>
              <li><a href='chat.php'>Общение с администрацией</a></li>
