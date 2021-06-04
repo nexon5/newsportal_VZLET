@@ -35,7 +35,7 @@
 
         include 'php/connect.php';
         connectDB();
-    
+
         if (isset($_POST['lang']) && isset($_POST['age'])){
         $lang = $_POST['lang'];
         $age = $_POST['age'];
@@ -50,7 +50,7 @@
                                 VALUES ( '$lang', '$age', '$sex', '$topic', '$prof', '$worldP', '$education')";
                                 mysqli_query($connection, $sql);
                                 unset($_POST);
-                                echo "<script>alert('SPASIBO!')</script>";
+                              
                                 header('Location: index.php');
                               }
 

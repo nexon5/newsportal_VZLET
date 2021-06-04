@@ -100,7 +100,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Главная страница</title>
+    <title>Статистика </title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
@@ -163,7 +163,7 @@ function drawChart() {
   ]);
 
   var options = {
-    title: 'Выбор языков'
+    title: 'Возраст подписчиков'
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
@@ -185,7 +185,7 @@ function drawChart() {
   ]);
 
   var options = {
-    title: 'Выбор языков'
+    title: 'Образование подписчиков'
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
@@ -194,6 +194,30 @@ function drawChart() {
 
 }
 </script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Наука', 'История', 'Философия', 'Политика','Наука'],
+          ['2014', 10, 21, 30, 14]
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -219,6 +243,7 @@ function drawChart() {
               <div id="piechart2" style="width: 900px; height: 500px;"></div>
               <div id="piechart3" style="width: 900px; height: 500px;"></div>
               <div id="piechart4" style="width: 900px; height: 500px;"></div>
+              <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
       </div>
 
 

@@ -57,10 +57,6 @@
     //====================================РАБОТА С БД===========================================
       include "php/connect.php";
       connectDB();
-     //  if ($connection->connect_error) {
-     //   die("Connection failed: " . $connection->connect_error);
-     // }
-     // echo "Connected successfully";
 
      $query1="SELECT id_users FROM users WHERE username='$user'";//Запрос на вывод ид из БД
      $result = mysqli_query($connection, $query1);//Запуск запроса
@@ -69,11 +65,6 @@
 
      $query2="SELECT id_i, title, link, username, coment FROM info INNER JOIN users on id_usersInfo=id_users WHERE id_usersInfo='$id_user'";
      $result = mysqli_query($connection, $query2);
-
-      // $arrayResult = mysqli_fetch_assoc($result);
-      // print_r($arrayResult);
-      // $arrayResult = mysqli_fetch_assoc($result);
-      // print_r($arrayResult);
 
      if ($result){
        $rows = mysqli_num_rows($result); // количество полученных строк
